@@ -1,3 +1,4 @@
+//IMPORTANT - REPEAT
 // Get your shorts on - this is an array workout!
 // ## Array Cardio Day 1
 
@@ -89,6 +90,7 @@ const orderedArrow = inventors.sort((a, b) => (a.year > b.year ? 1 : -1));
 console.table(ordered);
 console.table(orderedArrow);
 
+//READ UP ON REDUCE
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
 const totalYears = inventors.reduce((total, inventor) => {
@@ -113,9 +115,23 @@ console.table(oldest);
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+//Run in the console in the above link. Grabs the links within a specific class
+//Sorts the data
+// const category = document.querySelector(".mw-category");
+// const links = Array.from(category.querySelectorAll("a"));
+
+// const de = links
+//   .map((link) => link.textContent)
+//   .filter((streetName) => streetName.includes("de"));
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
+const lastNameSort = people.sort((lastOne, nextOne) => {
+  const [aLast, aFirst] = lastOne.split(", ");
+  const [bLast, bFirst] = nextOne.split(", ");
+  return aLast > bLast ? 1 : -1;
+});
+console.log(lastNameSort);
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
@@ -135,3 +151,13 @@ const data = [
   "car",
   "truck",
 ];
+
+const transportation = data.reduce(function (obj, item) {
+  if (!obj[item]) {
+    obj[item] = 0;
+  }
+  obj[item]++;
+  return obj;
+}, {});
+
+console.log(transportation);
